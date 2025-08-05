@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            background-color: #161118;
+        }
+        .container{
+           height: 90%;
+           width: 80%;
+           color: azure;
+           display: flex;
+           flex-direction: column;
+           gap: 2rem;
+
+        }
+        .imagebox{
+            height: 50%;
+            width: 100%;
+            object-fit: cover;
+            background-color: black;
+
+        }
+        .features{
+            display: grid;
+            grid-template-columns:repeat(auto-fit,minmax(100px,1fr)); 
+;           gap: 2rem;
+        }
+        .box{
+            background-color: rgb(12, 12, 33);
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 1rem;
+    border: 6px solid #5e3885;
+border-radius: 15px;
+        }
+        .downlaod{
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           gap: 2rem;
+        }
+    </style>
+</head>
+<body>
+     <div class="container">
+          <div class="imagebox">
+            <video style="height: 100%; width: 100%;" src="./cards/file_1060.mp4" muted autoplay loop>
+
+            </video>
+          </div>
+         <h1 style="color: azure;">Sorry for The intereption</h1>
+         <p style="color: azure;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur ea necessitatibus suscipit consequuntur autem vero saepe quam quibusdam perspiciatis laudantium nisi fugit cumque, reiciendis optio illo molestiae maiores delectus maxime!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, earum.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium suscipit doloremque quibusdam sit fugiat delectus nihil accusamus voluptas eius veniam.
+         </p>
+
+         <div class="features">
+            <div class="box"> Dynamic Combat </div>
+            <div class="box">Character Customization</div>
+            <div class="box">Engaging storyline</div>
+            <div class="box">Multiplay Mode</div>
+         </div>
+
+         <div class="downlaod">
+            <button style="width:30% ; height: 3rem ;border-radius: 0.5rem; background-color:#40c153 ; color:white; cursor: pointer;"> Download for Windows</button>
+            <button style="width:30% ; height: 3rem ;border-radius: 0.5rem; background-color:#40c153  ; color:white; cursor: pointer;"> Download for Mac</button>
+         </div>
+
+     </div>
+</body>
+</html>

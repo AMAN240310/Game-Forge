@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .innerbox{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        background-color: rgb(13, 4, 41);
+        border: 10px outset rgba(28,110,164,0.99);
+        border-radius: 22px;
+        gap: 0.5rem;
+      }
+      body{
+        background: #111618;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .Registerpage{
+        display: none;
+        height: 600px;
+        width: 400px;
+
+      }
+      .container{
+        height: 500px;
+        width: 350px;
+        background-color: rgb(11, 1, 26);
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        border: 12px inset #086ea9;
+        border-radius: 30px;
+      }
+      .imgbox{
+        height: 45%;
+        width: 100%;
+        object-fit: cover;
+      overflow: hidden;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       border-radius: 1rem;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      }
+      .fomLogin{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+      }
+      .rememberme{
+        display: flex;
+        width: 80%;
+        flex-direction: row;
+        justify-content: space-between;
+        color: white;
+      }
+      .Loginbutton{
+        width: 80%;
+        padding: 0.5rem;
+      height: 2rem;
+      background: rgb(165, 165, 255);
+      cursor: pointer;
+      }
+      .ancorlogin{
+        color: rgb(255, 255, 255);
+      }
+    </style>
+</head>
+<body>
+      <div class="container" id="container">
+         <div class="imgbox">
+            <video src="./cards/file_1095.mp4" autoplay loop muted style="object-fit: cover ; "></video>
+         </div>
+         <div class="fomLogin">
+             <input type="text" placeholder="Username " style="width: 80%; height: 2rem; border-radius: 0.3rem; padding: 0.5rem;">
+             <input type="text " placeholder="Password " style="width: 80%; height: 2rem; border-radius: 0.3rem; padding: 0.5rem;">
+             <div class="rememberme">
+                <span>Remember me </span> <input type="checkbox" id="Remember ">
+             </div>
+              
+              <button class="Loginbutton">Login</button>
+              <a href="" class="ancorlogin">Forget Password</a>
+              <a href="" onclick="showNew(event)" class="ancorlogin">Dont have an account?SigUp</a>
+         </div>    
+      </div>
+     
+      <div class="Registerpage" id="Registerpage">
+            <div class="innerbox">
+                <h1 style="color: aqua;">Create Your Account</h1>
+                <label style="color: aqua;" for="Username" style=" justify-content: start; ">Username</label>
+                <input type="text" class="Username" placeholder="Enter your  username " style="width: 80%; height: 2rem; border-radius: 0.3rem; padding: 0.5rem;">
+                <label style="color: aqua;" for="Email">Email</label>
+                <input type="text" class="Email" placeholder="Enter your Email" style="width: 80%; height: 2rem; border-radius: 0.3rem; padding: 0.5rem;">
+                <label style="color: aqua;" for="password">Password</label>
+                <input type="text" class="password" placeholder="enter your Password" style="width: 80%; height: 2rem; border-radius: 0.3rem; padding: 0.5rem;">
+                <label style="color: aqua; " for="confirmpass">Confirm Your Password</label>
+                <input type="text" placeholder="Confirm your password"  style="width: 80%; height: 2rem; border-radius: 0.3rem; padding: 0.5rem;">
+                <button class="Loginbutton">Sing Up</button>
+
+                <div style="display: flex; flex-direction: column; gap: 0.5rem; width: 80%;">
+                     <h2 style="color: aqua;">Or sing up with </h2>
+                     <a href="#" style="height:2rem; width: 100%; background-color: rgb(250, 167, 250); display: flex ; justify-content: center; align-items: center; ">Google</a>
+                     <a href="#" style="height:2rem; width: 100%; background-color: rgb(241, 183, 241); display: flex ; justify-content: center; align-items: center;">Facebook</a>
+                     <a href="#" style="height:2rem; width: 100%; background-color: rgb(236, 174, 236); display: flex ; justify-content: center; align-items: center;">Mobile no</a>
+                </div>
+                <a href="">Already have an account</a> 
+            </div>
+      </div>
+
+ <script>
+    function showNew(event) {
+      event.preventDefault(); 
+      document.getElementById("container").style.display = "none";
+      document.getElementById("Registerpage").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>

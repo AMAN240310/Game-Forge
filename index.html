@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Forge</title>
+    <link rel="stylesheet" href="./src/output.css">
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+</head>
+
+<style>
+  body{
+    background-color: #161118 ;
+  }
+ .banner{
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 50px; */
+  }
+.banner .slider{
+    position: absolute;
+    width: 100px;
+    height: 150px;
+    top: 10%;
+    left: calc(50% -100px);
+    transform-style: preserve-3d ;
+    transform: perspective(1000px);
+    animation: autorun 20s linear infinite;
+    margin-top: 50px;
+    z-index: 2;
+}
+@keyframes autorun {
+  from{
+    transform: perspective(1000px)  rotateX(-8deg) rotateY(0deg);
+  }
+  to{
+      transform: perspective(1000px) rotateX(-8deg) rotateY(360deg);
+  }
+}
+.banner .slider .item{
+    position: absolute;
+    inset:0 0 0 0 ;
+    /* transform: rotateY(calc( (var(--position) -1) *(360/ var(--quantity)) *1deg)) translateZ(550px); */
+  transform: rotateY(calc((var(--position) - 1) * 36deg)) translateZ(550px);
+  
+}
+.banner .slider .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid white;
+    transition: all linear 0.2s;
+}
+.banner .slider .item :hover{
+   transform: scale(1.05);
+}
+.slider:hover {
+    animation-play-state: paused;
+    transition: all linear 0.5s ease-in;
+}
+.banner .content{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform:  translateX(-50%);
+  width: min(1400px, 100vw);
+  height: max-content;
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 1;
+   
+
+}
+.banner .content h1{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 5rem;
+  line-height: 1rem;
+  color: #FFFFFF ;
+  position: relative;
+  text-shadow: 0px 3px 23px rgba(255,255,255,0.53);
+  opacity: 60%;
+  z-index: 2;
+}
+.banner .content h1::after{
+  position: absolute;
+  inset: 0 0 0 0 ;
+  content: attr(data-text);
+  z-index: 2;
+  -webkit-text-stroke: 2px #d2dd2d;
+  color: transparent;
+
+}
+.banner .content .model{
+      /* background-image: url('./assets/ChatGPT\ Image\ Aug\ 4\,\ 2025\,\ 04_04_57\ PM.png'); */
+      background-image: url('./assets/Gemini_Generated_Image_2uz8xr2uz8xr2uz8__1_-removebg-preview.png');
+
+      width: 100%;
+      height: 75vh;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-size: auto ;
+      background-repeat: no-repeat;
+      background-position: top center;
+       z-index: 1;
+}
+.gamescontain:hover{
+  
+  transition: all linear 0.5 ease-in ;
+}
+</style>
+
+<body class="scroll-smooth">
+    <nav class=" flex justify-between px-5 border-b-1 border-b-yellow-50 fixed z-10  w-full bg-black">
+
+    <div class="flex justify-evenly gap-5 items-center font-sans" >
+            <div class="font-bold text-white opacity-80 text-xl flex items-center space-x-2 font-serif">
+              <img src="./assets/logo2forge.png"  height="50px" width="50px " class="rounded-50%" >
+               <h3>GameForge</h3>
+             </div>
+        <ul class="flex gap-5 text-white py-4 opacity-80 items-center font-serif ">
+             <li>
+                 <a href="#">Home</a>
+            </li>
+            <li>
+                 <a href="#storediv">Store</a>
+            </li>
+            <li>
+                <a href="#Rankingdiv">Ranking</a>
+            </li>
+            <li>
+                <a href="#Communitydiv">Community</a>
+            </li>
+        </ul>
+    </div>
+
+        <div class="flex gap-5 text-white opacity-80 items-center">
+            <div class="border-white border-1  bg-blue-950 py-1 px-1 rounded-sm flex gap-1" >
+              <!-- <img src="" alt=""> -->
+                     <img class="" src="./assets/search-finder-magnifying-glass-svgrepo-com.svg" height="10px" width="20px" alt="search icon">
+              <input type="text" placeholder="search" class="font-serif">
+           </div>
+        
+          <button class="border-white border-1 py-1 px-1 bg-blue-500 transition-all duration-200 hover:bg-blue-600  rounded-sm font-serif">
+      <a href="login.html"> Login/Register</a>
+           
+          </button>
+        </div>
+    </nav>
+  <!-- mainbody -->
+    <div class="banner  " >
+        <h1 class="text-amber-50 absolute top-0 left-[5%] m-1 text-2xl">Tending Games</h1>
+         <div class="slider" style="--quantity: 10;">
+              
+            <div class="item bg-gradient-to-r from-green-400 via-cyan-400 to-blue-500 shadow-[0_0_25px_#22d3ee]" style="--position: 1">
+              <div class="absolute top-0  left-0 font-bold font-serif text-white " >
+                      <h3>#1</h3>
+              </div>
+                 <video src="./cards/file_987.mp4" autoplay loop muted class="w-full h-full object-cover border-1 border-amber-50"> 
+                 </video>
+                 <a href="downloadapge.html">
+                    <button class="w-full bg-blue-500">Play now </button>
+                 </a>
+            </div>
+
+             <div class="item bg-gradient-to-r from-green-400 via-cyan-400 to-blue-500 shadow-[0_0_25px_#22d3ee]" style="--position: 2">
+                  <div class="absolute top-0  left-0 font-bold font-serif text-white " >
+                      <h3>#2</h3>
+              </div>
+                <video src="./cards/oTLqhk_d8bY.mp4" autoplay loop muted class="w-full h-full object-cover border-1 border-amber-50"> 
+                 </video>
+                 <a href="downloadapge.html"> <button class="w-full bg-blue-500">Play now </button></a>
+                  
+            </div>
+
+              <div class="item bg-gradient-to-r from-green-400 via-cyan-400 to-blue-500 shadow-[0_0_25px_#22d3ee]" style="--position: 3">
+               <div class="absolute top-0  left-0 font-bold font-serif text-white  " >
+                      <h3>#3</h3>
+              </div>
+                <video src="./cards/file_985.mp4" autoplay loop muted class="w-full h-full object-cover border-1 border-amber-50"> 
+                 </video>
+                 <a href="downloadapge.html">   <button class="w-full bg-blue-500 ">Play now </button></a>
+       
+            </div>
+
+              <div class="item bg-gradient-to-r from-green-400 via-cyan-400 to-blue-500 shadow-[0_0_25px_#22d3ee]" style="--position: 4">
+              <div class="absolute top-0  left-0 font-bold font-serif text-white  " >
+                      <h3>#4</h3>
+              </div>
+                       <video src="./cards/file_990.mp4" autoplay loop muted class="w-full h-full object-cover border-1 border-amber-50"> 
+                 </video>
+                 <a href="downloadapge.html"> <button class="w-full bg-blue-500">Play now </button></a>
+      
+            </div>
+
+              <div class="item bg-gradient-to-r from-green-400 via-cyan-400 to-blue-500 shadow-[0_0_25px_#22d3ee]" style="--position: 5">
+                <div class="absolute top-0  left-0 font-bold font-serif text-white " >
+                      <h3>#5</h3>
+              </div>
+                <video src="./cards/file_981.mp4" autoplay loop muted class="w-full h-full object-cover border-1 border-amber-50"> 
+                 </video>
+     
+         <a href="downloadapge.html">    <button class="w-full bg-blue-500">Play now </button></a>
+            </div>
+
+              <div class="item bg-gradient-to-r from-green-400 via-cyan-400 to-blue-500 shadow-[0_0_25px_#22d3ee]" style="--position: 6">
+              <div class="absolute top-0  left-0 font-bold font-serif text-white " >
+                      <h3>#6</h3>
+              </div>
+                <!-- <img src="./assets/photo_2025-08-02_15-53-33.jpg" alt=""> -->
+               <video src="./cards/file_1096.mp4" autoplay loop muted class="w-full h-full object-cover border-1 border-amber-50"> 
+                 </video>
+                 <a href="downloadapge.html"><button class="w-full bg-blue-500">Play now </button></a>
+           
+            </div>
+
+              <div class="item bg-gradient-to-r from-green-400 via-cyan-400 to-blue-500 shadow-[0_0_25px_#22d3ee]" style="--position: 7">
+                 <div class="absolute top-0  left-0 font-bold font-serif text-white " >
+                      <h3>#7</h3>
+              </div>
+                <!-- <img src="./assets/photo_2025-08-02_15-54-32.jpg" alt=""> -->
+                <video src="./cards/file_1054.mp4" autoplay loop muted class="w-full h-full object-cover border-1 border-amber-50"> 
+                 </video>
+                 <a href="downloadapge.html">    <button class="w-full bg-blue-500">Play now </button></a>
+            </div>
+
+              <div class="item bg-gradient-to-r from-green-400 via-cyan-400 to-blue-500 shadow-[0_0_25px_#22d3ee]" style="--position: 8">
+              <div class="absolute top-0  left-0 font-bold font-serif text-white " >
+                      <h3>#8</h3>
+              </div>
+                  <video src="./cards/file_1052.mp4" autoplay loop muted class="w-full h-full object-cover border-1 border-amber-50"> 
+                 </video>
+                 <a href="downloadapge.html">    <button class="w-full bg-blue-500">Play now </button></a>
+             
+            </div>
+
+            <div class="item bg-gradient-to-r from-green-400 via-cyan-400 to-blue-500 shadow-[0_0_25px_#22d3ee]" style="--position: 9">
+              <div class="absolute top-0  left-0 font-bold font-serif text-white " >
+                      <h3>#9</h3>
+              </div>  
+                 <video src="./cards/file_1092.mp4" autoplay loop muted class="w-full h-full object-cover border-1 border-amber-50">        
+                 </video>
+                 <a href=""> <button class="w-full bg-blue-500">Play now </button></a>
+            </div>
+
+            <div class="item bg-gradient-to-r from-green-400 via-cyan-400 to-blue-500 shadow-[0_0_25px_#22d3ee]" style="--position: 10">
+                 <div class="absolute top-0  left-0 font-bold font-serif text-white " >
+                      <h3>#10</h3>
+                 </div>
+                 <!-- <p class="absolute bottom-0 left-0 text-xs text-amber-100 opacity-50 ">
+                   House of dragons
+                 </p> -->
+                 <video src="./cards/file_1091.mp4" autoplay loop muted class="w-full h-full object-cover border-1 border-amber-50">
+                 </video>
+                 <a href="downloadapge.html">        <button class="w-full bg-blue-500 ">Play now </button> </a>
+              </div>
+         </div>
+
+      <div class="content">
+               <h1>Game Forge</h1>
+               <h1>Escape the Reality</h2>
+
+                <div class="model ">
+                 <!-- <img src="./assets/Gemini_Generated_Image_2uz8xr2uz8xr2uz8__1_-removebg-preview.png" alt=""> -->
+             </div>
+         </div>
+    </div>
+
+<section class="flex justify-center items-center gap-6">
+  <div class="flex flex-col gap-6  " id="storediv">
+      <h1 class=" text-4xl text-amber-100">Store</h1>
+        <input type="text" placeholder="search Games "  class="bg-gray-900 text-white border-2 border-cyan-400 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 shadow-[0_0_15px_#22d3ee] placeholder:text-cyan-300 transition h-[50px]  px-5">
+       <div class="flex   gap-4  text-xl text-white">
+           <div class="rounded-2xl border-1 border-amber-50 px-2 ">Genre</div>
+           <div class="rounded-2xl border-1 border-amber-50 px-2 ">Price Range</div>
+           <div class="rounded-2xl  border-1 border-amber-50 px-2 ">Platform</div>
+       </div>
+    <div class="storeGrid grid grid-cols-[repeat(auto-fit,_minmax(175px,_1fr))] gap-2 p-2 " >
+
+      <a href="downloadapge.html" class="gamescontain object-cover transform transition-transform hover:scale-105 bg-black text-white rounded-xl border border-cyan-400 overflow-hidden ">      <div class="h-full w-full overflow-hidden "> 
+         <img class="object-cover h-full w-full" src="./assets/ChatGPT Image Aug 4, 2025, 04_04_57 PM.png" alt=""> 
+        <!-- <div class="absolute  bg-blue-950 flex flex-col justify-center items-center">
+             <h1 class="text-sm text-amber-50 font-bold ">Chandal Ki nani</h1>
+             <p class="text-amber-50 text-xm ">Genre:Action </p>
+             <button class="text-sm bg-blue-600 py-1 px-2 rounded-md w-[80%] hover:bg-blue-300 hover:scale-105 cursor-pointer ">Play now</button>
+        </div> -->
+
+      </div></a>
+      <a href="downloadapge.html" class="gamescontain object-cover transform transition-transform  hover:scale-105 bg-black text-white rounded-xl border border-cyan-400 overflow-hidden ">    <div class="h-full w-full overflow-hidden"> <img class="object-cover h-full w-full" src="./assets/photo_2025-08-02_15-49-12.jpg" alt=""> </div></a>
+      <a href="downloadapge.html" class="gamescontain object-cover transform transition-transform hover:scale-105 bg-black text-white rounded-xl border border-cyan-400 overflow-hidden ">     <div class="h-full w-full overflow-hidden"> <img class="object-cover h-full w-full" src="./assets/photo_2025-08-02_15-50-30.jpg" alt=""> </div></a>
+       <a href="downloadapge.html" class="gamescontain object-cover transform transition-transform hover:scale-105 bg-black text-white rounded-xl border border-cyan-400 overflow-hidden ">      <div class="h-full w-full overflow-hidden"> <img class="object-cover h-full w-full" src="./assets/photo_2025-08-02_15-51-27.jpg" alt=""> </div></a>
+       <a href="" class="gamescontain object-cover transform transition-transform hover:scale-105 bg-black text-white rounded-xl border border-cyan-400 overflow-hidden ">   <div class="h-full w-full overflow-hidden "> <img class="object-cover h-full w-full" src="./assets/photo_2025-08-02_15-52-39.jpg" alt=""> </div></a>
+      <a href="downloadapge.html"  class="gamescontain object-cover transform transition-transform hover:scale-105 bg-black text-white rounded-xl border border-cyan-400 overflow-hidden ">      <div class="h-full w-full overflow-hidden"> <img class="object-cover h-full w-full" src="./assets/photo_2025-08-02_15-53-33.jpg" alt=""> </div></a>
+       <a href="">   <div class="gamescontain object-cover transform transition-transform hover:scale-105 bg-black text-white rounded-xl border border-cyan-400 overflow-hidden "> <img class="object-cover h-full w-full" src="./assets/photo_2025-08-02_15-54-09.jpg" alt=""> </div></a>
+      <a href="downloadapge.html" class="gamescontain object-cover transform transition-transform hover:scale-105 bg-black text-white rounded-xl border border-cyan-400 overflow-hidden ">      <div class="h-full w-full overflow-hidden "> <img class="object-cover h-full w-full" src="./assets/photo_2025-08-02_15-54-32.jpg" alt=""> </div></a>
+      <a href="downloadapge.html" class="gamescontain object-cover transform transition-transform hover:scale-105 bg-black text-white rounded-xl border border-cyan-400 overflow-hidden ">  <div class=" h-full w-full overflow-hidden"> <img class="object-cover h-full w-full" src="./assets/photo_2025-08-02_16-05-07.jpg" alt=""> </div></a>
+       <a href="downloadapge.html" class="gamescontain object-cover transform transition-transform hover:scale-105 bg-black text-white rounded-xl border border-cyan-400 overflow-hidden "><div class="h-full w-full overflow-hidden"> <img class="object-cover h-full w-full" src="./assets/photo_2025-08-02_16-10-09.jpg" alt=""> </div></a>
+      <a href="downloadapge.html" class="gamescontain object-cover transform transition-transform hover:scale-105 bg-black text-white rounded-xl border border-cyan-400 overflow-hidden ">      <div class=" h-full w-full overflow-hidden "> <img class="object-cover h-full w-full" src="./assets/Gemini_Generated_Image_2uz8xr2uz8xr2uz8__1_-removebg-preview.png" alt=""></div></a>
+      <a href="downloadapge.html" class="gamescontain object-cover transform transition-transform hover:scale-105 bg-black text-white rounded-xl border border-cyan-400 overflow-hidden ">    <div class="h-full w-full overflow-hidden"> <img class="object-cover h-full w-full" src="./assets/photo_2025-08-02_15-50-30.jpg" alt=""> </div></a>
+       <a href="downloadapge.html" class="gamescontain object-cover transform transition-transform hover:scale-105 bg-black text-white rounded-xl border border-cyan-400 overflow-hidden ">    <div class="h-full w-full overflow-hidden "> <img class="object-cover h-full w-full" src="./assets/photo_2025-08-02_15-52-39.jpg" alt=""> </div>
+    </div></a>
+  
+
+   </div>
+</section>
+
+<section class="flex justify-center items-center gap-6 py-6" >
+
+     <div class="w-[80%] mx-auto flex flex-col gap-6" id="Rankingdiv">
+
+      <h1 class=" text-4xl text-amber-100">Global Ranking</h1>
+        <input type="text" placeholder="search your rank "  class="bg-gray-900 text-white border-2 border-cyan-400  pl-12 focus:outline-none focus:ring-2 focus:ring-cyan-400 shadow-[0_0_15px_#22d3ee] placeholder:text-cyan-300 transition h-[50px] rounded-md px-2">
+       <div class="flex   gap-4  text-xl text-white">
+           <div class="rounded-2xl border-1 border-amber-50 px-2 ">Genre</div>
+           <div class="rounded-2xl border-1 border-amber-50 px-2 ">Sort by</div>
+           <div class="rounded-2xl  border-1 border-amber-50 px-2 ">Time Frame</div>
+       </div>
+      <div class="storeGrid   grid grid-row-1 sm:grid-row-2 md:grid-row-3 lg:grid-row-4 xl:grid-row-6 gap-0 " >
+
+          <div class="flex justify-evenly border-1 border-amber-50 items-center rounded-t-xl  bg-gradient-to-r from-green-400 via-cyan-400 to-blue-500 shadow-[0_0_20px_rgba(0,255,170,0.5)]"> 
+             <h1 class="text-amber-50 text-xl">Rank</h1>
+              <h1 class="text-amber-50 text-xl">Player</h1>
+              <p class="text-amber-50 text-xl">Game</p>
+              <h1 class="text-amber-50 text-xl">Score</h1>
+              <h1 class="text-amber-50 text-xl">Level</h1>
+          </div>  
+
+          <div class="flex justify-evenly border-1 border-amber-50 items-center  bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 shadow-[0_0_20px_rgba(255,0,255,0.5)]"> 
+             <h1 class="text-amber-50 text-xl py-4">1</h1>
+              <img src="./logos/avataricon.webp " alt="" class=" bg-green-400 h-10  w-10 rounded-[50%] " > 
+              <p class="text-amber-50 text-xl">John cena</p>
+              <h1 class="text-amber-50 text-xl">12000</h1>
+              <h1 class="text-amber-50 text-xl">98</h1>
+          </div>  
+                    <div class="flex justify-evenly border-1 border-amber-50 items-center  bg-gradient-to-r from-green-400 via-cyan-400 to-blue-500 shadow-[0_0_20px_rgba(0,255,170,0.5)]"> 
+             <h1 class="text-amber-50 text-xl py-4">2</h1>
+              <img src="./logos/avataricon.webp " alt="" class=" bg-green-400 h-10  w-10 rounded-[50%] " > 
+              <p class="text-amber-50 text-xl">John cena</p>
+              <h1 class="text-amber-50 text-xl">12000</h1>
+              <h1 class="text-amber-50 text-xl">98</h1>
+          </div>  
+                    <div class="flex justify-evenly border-1 border-amber-50 items-center  bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 shadow-[0_0_20px_rgba(255,0,255,0.5)]"> 
+             <h1 class="text-amber-50 text-xl py-4">3</h1>
+              <img src="./logos/avataricon.webp " alt="" class=" bg-green-400 h-10  w-10 rounded-[50%] " > 
+              <p class="text-amber-50 text-xl">John cena</p>
+              <h1 class="text-amber-50 text-xl">12000</h1>
+              <h1 class="text-amber-50 text-xl">98</h1>
+          </div>  
+                    <div class="flex justify-evenly border-1 border-amber-50 items-center  bg-gradient-to-r from-green-400 via-cyan-400 to-blue-500 shadow-[0_0_20px_rgba(0,255,170,0.5)]"> 
+             <h1 class="text-amber-50 text-xl py-4">4</h1>
+              <img src="./logos/avataricon.webp " alt="" class=" bg-green-400 h-10  w-10 rounded-[50%] " > 
+              <p class="text-amber-50 text-xl">John cena</p>
+              <h1 class="text-amber-50 text-xl">12000</h1>
+              <h1 class="text-amber-50 text-xl">98</h1>
+          </div>  
+                    <div class="flex justify-evenly border-1 border-amber-50 items-center  bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 shadow-[0_0_20px_rgba(255,0,255,0.5)]"> 
+             <h1 class="text-amber-50 text-xl py-4">5</h1>
+              <img src="./logos/avataricon.webp " alt="" class=" bg-green-400 h-10  w-10 rounded-[50%] " > 
+              <p class="text-amber-50 text-xl">John cena</p>
+              <h1 class="text-amber-50 text-xl">12000</h1>
+              <h1 class="text-amber-50 text-xl">98</h1>
+          </div>  
+                    <div class="flex justify-evenly border-1 border-amber-50 items-center bg-gradient-to-r from-green-400 via-cyan-400 to-blue-500 shadow-[0_0_20px_rgba(0,255,170,0.5)]"> 
+             <h1 class="text-amber-50 text-xl py-4">6</h1>
+              <img src="./logos/avataricon.webp " alt="" class=" bg-green-400 h-10  w-10 rounded-[50%] " > 
+              <p class="text-amber-50 text-xl">John cena</p>
+              <h1 class="text-amber-50 text-xl">12000</h1>
+              <h1 class="text-amber-50 text-xl">98</h1>
+          </div>  
+                    <div class="flex justify-evenly border-1 border-amber-50 items-center  bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 shadow-[0_0_20px_rgba(255,0,255,0.5)]"> 
+             <h1 class="text-amber-50 text-xl py-4">7</h1>
+              <img src="./logos/avataricon.webp " alt="" class=" bg-green-400 h-10  w-10 rounded-[50%] " > 
+              <p class="text-amber-50 text-xl">John cena</p>
+              <h1 class="text-amber-50 text-xl">12000</h1>
+              <h1 class="text-amber-50 text-xl">98</h1>
+          </div>  
+                    <div class="flex justify-evenly border-1 border-amber-50 items-center  bg-gradient-to-r from-green-400 via-cyan-400 to-blue-500 shadow-[0_0_20px_rgba(0,255,170,0.5)]"> 
+             <h1 class="text-amber-50 text-xl py-4">8</h1>
+              <img src="./logos/avataricon.webp " alt="" class=" bg-green-400 h-10  w-10 rounded-[50%] " > 
+              <p class="text-amber-50 text-xl">John cena</p>
+              <h1 class="text-amber-50 text-xl">12000</h1>
+              <h1 class="text-amber-50 text-xl">98</h1>
+          </div>  
+                    <div class="flex justify-evenly border-1 border-amber-50 items-center  bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 shadow-[0_0_20px_rgba(255,0,255,0.5)]"> 
+             <h1 class="text-amber-50 text-xl py-4">9</h1>
+              <img src="./logos/avataricon.webp " alt="" class=" bg-green-400 h-10  w-10 rounded-[50%] " > 
+              <p class="text-amber-50 text-xl">John cena</p>
+              <h1 class="text-amber-50 text-xl">12000</h1>
+              <h1 class="text-amber-50 text-xl">98</h1>
+          </div>  
+                    <div class="flex justify-evenly border-1 border-amber-50 items-center bg-gradient-to-r from-green-400 via-cyan-400 to-blue-500 shadow-[0_0_20px_rgba(0,255,170,0.5)]"> 
+             <h1 class="text-amber-50 text-xl py-4">10</h1>
+              <img src="./logos/avataricon.webp " alt="" class=" bg-green-400 h-10  w-10 rounded-[50%] " > 
+              <p class="text-amber-50 text-xl">John cena</p>
+              <h1 class="text-amber-50 text-xl">12000</h1>
+              <h1 class="text-amber-50 text-xl">98</h1>
+          </div>  
+                    <div class="flex justify-evenly border-1 border-amber-50 items-center  bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 shadow-[0_0_20px_rgba(255,0,255,0.5)]"> 
+             <h1 class="text-amber-50 text-xl py-4">11</h1>
+              <img src="./logos/avataricon.webp " alt="" class=" bg-green-400 h-10  w-10 rounded-[50%] " > 
+              <p class="text-amber-50 text-xl">John cena</p>
+              <h1 class="text-amber-50 text-xl">12000</h1>
+              <h1 class="text-amber-50 text-xl">98</h1>
+          </div>  
+                    <div class="flex justify-evenly border-1 border-amber-50 items-center  bg-gradient-to-r from-green-400 via-cyan-400 to-blue-500 shadow-[0_0_20px_rgba(0,255,170,0.5)]"> 
+             <h1 class="text-amber-50 text-xl py-4">12</h1>
+              <img src="./logos/avataricon.webp " alt="" class=" bg-green-400 h-10  w-10 rounded-[50%] " > 
+              <p class="text-amber-50 text-xl">John cena</p>
+              <h1 class="text-amber-50 text-xl">12000</h1>
+              <h1 class="text-amber-50 text-xl">98</h1>
+          </div>  
+
+
+      </div>
+
+</section>
+
+<section class="flex flex-col justify-center items-center gap-6 ">
+     <div class="flex flex-col justify-center items-center gap-6 m-auto h-[70vh]" id="Communitydiv"> 
+      <h1 class="text-5xl font-serif  font-extrabold text-purple-400 drop-shadow-[0_0_10px_#a855f7] tracking-wider uppercase" >Join The Game Forge</h1> 
+             <h1 class="text-5xl font-extrabold text-purple-400 drop-shadow-[0_0_10px_#a855f7] tracking-wider uppercase  font-serif">Community</h1>
+             <p>Unite.Discuss.Dominate</p>
+             <a href="error.html">    <button class="text-xl font-bold text-yellow-400  py-4 px-4 roundtext-cyan-400 border border-cyan-400 rounded-lg  hover:text-white hover:bg-cyan-500 transition duration-300 shadow-[0_0_15px_#22d3ee]  hover:shadow-[0_0_25px_#22d3ee] 
+               uppercase tracking-wideed-xl cursor-pointer"> Start a Discussion</button></a>
+         
+     </div>
+     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+
+           <div class="flex flex-col justify-center items-center py-1 px-3  bg-black text-white rounded-xl border border-cyan-400 
+            hover:shadow-[0_0_30px_#22d3ee] 
+            transition duration-300 cursor-pointer"> <img src="./logos/newssvg-removebg-preview.png" height="100rem" width="125rem" alt=""> <h1 class="text-xl text-white">News</h1> <p class=" text-white opacity-50">Latest Updates</p> </div>
+                      <div class="flex flex-col justify-center items-center py-1 px-3 bg-black text-white rounded-xl border border-cyan-400 
+            hover:shadow-[0_0_30px_#22d3ee] 
+            transition duration-300 cursor-pointer"> <img src="./logos/tipssvg-removebg-preview.png" height="100rem" width="125rem" alt=""> <h1 class="text-xl text-white">Tips</h1> <p class=" text-white opacity-50">Improve your game</p> </div>
+           <div class="flex flex-col justify-between items-center py-1 px-3 bg-black text-white rounded-xl border border-cyan-400 
+            hover:shadow-[0_0_30px_#22d3ee] 
+            transition duration-300cursor-pointer"> <img src="./logos/artlogo-removebg-preview.png" height="100rem" width="125rem" alt=""> <h1 class="text-xl text-white">Fan Arts</h1> <p class=" text-white opacity-50">Creative Wors</p> </div>
+                      <div class="flex flex-col justify-center items-center py-1 px-3 bg-black text-white rounded-xl border border-cyan-400 
+            hover:shadow-[0_0_30px_#22d3ee] 
+            transition duration-300 cursor-pointer"> <img src="./logos/support-removebg-preview.png" height="100rem" width="125rem" alt=""> <h1 class="text-xl text-white">Support</h1> <p class=" text-white opacity-50">Get Help</p> </div>
+           <div class="flex flex-col justify-center items-center py-1 px-3 bg-black text-white rounded-xl border border-cyan-400 
+            hover:shadow-[0_0_30px_#22d3ee] 
+            transition duration-300 cursor-pointer"> <img src="./logos/tournament-removebg-preview.png" height="100rem" width="125rem" alt=""> <h1 class="text-xl text-white">Tournament</h1> <p class=" text-white opacity-50">Compete and win</p> </div>
+                      <div class="flex flex-col justify-center items-center py-1 px-3 bg-black text-white rounded-xl border border-cyan-400 
+            hover:shadow-[0_0_30px_#22d3ee] 
+            transition duration-300 cursor-pointer"> <img src="./logos/general-removebg-preview.png" height="100rem" width="125rem" alt=""> <h1 class="text-xl text-white">General</h1> <p class=" text-white opacity-50">Off-topics</p> </div>
+     </div>
+
+     <div class= " flex  gap-10 flex-wrap justify-center w-max-[1000px]">
+       <div class="leftdiv grid grid-cols-1 gap-4 w-[800px] ">
+           <h1 class="text-amber-50 text-3xl items-start" >Recent Posts</h1>
+
+           <div class="flex justify-between  w-full py-1 px-9  bg-black text-white rounded-xl border border-cyan-400 
+                hover:shadow-[0_0_30px_#22d3ee] 
+            transition duration-300 cursor-pointer" >  
+              <div class="flex gap-2 items-center justify-center">  <img class="rounded-full bg-amber-100" src="./logos/avataricon.webp" alt="" height="40px " width="40px  "> <div class="flex flex-col justify-center items-center  "> <h1 class="text-xl text-white font-sans">New Game update :version 2.0</h1> <p class="text-amber-50 ">by Pixel master 2hr</p></div> </div>
+              <div class="text-amber-50 flex gap-2 justify-center items-center"> <button><img src="" alt=""> likes</button>    <button><img src="" alt=""></button> comments</div>
+           </div>
+          <div class="flex justify-between w-full py-1 px-9  bg-black text-white rounded-xl border border-cyan-400 
+                hover:shadow-[0_0_30px_#22d3ee] 
+            transition duration-300 cursor-pointer" >  
+              <div class="flex gap-2 items-center justify-center">  <img class="rounded-full bg-amber-100" src="./logos/avataricon.webp" alt="" height="40px " width="40px  "> <div class="flex flex-col justify-center items-center  "> <h1 class="text-xl text-white font-sans">New Game update :version 2.0</h1> <p class="text-amber-50 ">by Pixel master 2hr</p></div> </div>
+              <div class="text-amber-50 flex gap-2 justify-center items-center"> <button><img src="" alt=""> likes</button>    <button><img src="" alt=""></button> comments</div>
+           </div>
+
+           <div class="flex justify-between  w-full py-1 px-9 bg-black text-white rounded-xl border border-cyan-400 
+                hover:shadow-[0_0_30px_#22d3ee] 
+            transition duration-300 cursor-pointer " >  
+              <div class="flex gap-2 items-center justify-center">  <img class="rounded-full bg-amber-100" src="./logos/avataricon.webp" alt="" height="40px " width="40px  "> <div class="flex flex-col justify-center items-center  "> <h1 class="text-xl text-white font-sans">New Game update :version 2.0</h1> <p class="text-amber-50 ">by Pixel master 2hr</p></div> </div>
+              <div class="text-amber-50 flex gap-2 justify-center items-center"> <button><img src="" alt=""> likes</button>    <button><img src="" alt=""></button> comments</div>
+           </div>
+
+      </div>
+
+            <div class="rightdiv flex flex-col  left-0 px-3 py-2 gap-4  bg-black text-white rounded-xl border border-cyan-400 
+                hover:shadow-[0_0_30px_#22d3ee] 
+            transition duration-300 cursor-pointer" >
+                <h1 class="text-2xl text-amber-50">Top Contributors</h1>
+               <div class="flex flex-col gap-1 ">
+              <div class="flex gap-2 items-center bg-black text-white rounded-xl border border-cyan-400 px-2">  <img class="rounded-full bg-amber-100" src="./logos/avataricon.webp" alt="" height="40px " width="40px  "> <div class="flex flex-col justify-center items-start  "> <h1 class="text-xl text-white font-sans">New Game update :version 2.0</h1> <p class="text-amber-50 ">by Pixel master 2hr</p></div> </div>
+            
+             <div class="flex gap-2 items-center bg-black text-white rounded-xl border border-cyan-400  px-2">  <img class="rounded-full bg-amber-100" src="./logos/avataricon.webp" alt="" height="40px " width="40px  "> <div class="flex flex-col justify-center items-start  "> <h1 class="text-xl text-white font-sans">New Game update :version 2.0</h1> <p class="text-amber-50 ">by Pixel master 2hr</p></div> </div>
+                </div>
+            
+               <h1 class="text-2xl text-amber-50">Trending Threds</h1>
+               <p class="text-amber-50">Pitch.2.1 Speculation thred </p>
+               <p class="text-amber-50">Pitch.2.1 Speculation thred </p>
+               <p class="text-amber-50">Pitch.2.1 Speculation thred </p>
+           </div>
+
+     </div>
+     
+
+</section>
+
+<footer class=" text-gray-300 pt-12 pb-6 px-6 mt-12">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+
+    <!-- Logo & About -->
+    <div>
+      <h2 class="text-2xl font-extrabold text-cyan-400 mb-4">Game Forge</h2>
+      <p class="text-sm text-gray-400">
+        Your ultimate destination for gaming news, tournaments, and community events.
+        Join now and level up your play.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <h3 class="text-xl font-semibold text-white mb-4">Quick Links</h3>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-cyan-400 transition">Home</a></li>
+        <li><a href="#" class="hover:text-cyan-400 transition">Games</a></li>
+        <li><a href="#" class="hover:text-cyan-400 transition">Tournaments</a></li>
+        <li><a href="#" class="hover:text-cyan-400 transition">Store</a></li>
+        <li><a href="#" class="hover:text-cyan-400 transition">Community</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Links -->
+    <div>
+      <h3 class="text-xl font-semibold text-white mb-4">Connect</h3>
+      <div class="flex space-y-2 flex-col text-sm">
+        <a href="#" class="hover:text-pink-500 transition ">Discord</a>
+        <a href="#" class="hover:text-blue-500 transition ">twitter</a>
+        <a href="#" class="hover:text-red-600 transition ">You Tube</a>
+        <a href="#" class="hover:text-blue-600 transition ">Instagram</i></a>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div>
+      <h3 class="text-xl font-semibold text-white mb-4">Subscribe</h3>
+      <p class="text-sm text-gray-400 mb-2">Get the latest updates, news, and drops.</p>
+      <form class="flex flex-col sm:flex-row items-center gap-2">
+        <input type="email" placeholder="Your email"
+          class="w-full sm:w-auto px-4 py-2 rounded bg-gray-800 text-white border border-cyan-400 focus:outline-none" />
+        <button type="submit"
+          class="px-4 py-2 bg-cyan-500 text-black font-semibold rounded hover:bg-cyan-400 transition">Join</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="mt-12 border-t border-gray-700 pt-4 text-center text-sm text-gray-500">
+    &copy; 2025 GamerZone. All rights reserved.
+  </div>
+</footer>
+
+
+</body>
+</html>
